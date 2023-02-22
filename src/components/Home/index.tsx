@@ -6,7 +6,7 @@ import { ProgressBarLine } from "react-progressbar-line";
 
 import "./styles.scss";
 
-const Home : React.FC = () => {
+const Home: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
   const [progress, setProgress] = useState(0);
 
@@ -109,7 +109,7 @@ const Home : React.FC = () => {
               <button
                 className={`btn-primary btn-block `}
                 onClick={progressbarHandler}
-                disabled={`${progress === 10 ? "disabled" : ""}`}
+                disabled={progress === 10 ? true : false}
               >
                 Add New Board
               </button>

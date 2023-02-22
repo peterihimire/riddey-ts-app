@@ -3,13 +3,20 @@ import ReactDOM from "react-dom";
 
 import "./styles.scss";
 
-
-interface Props = {
-  header: string,
-  
+interface Props {
+  header?: string;
+  bodyClass?: string;
+  click?: () => void;
+  children?: JSX.Element | JSX.Element[];
 }
 
-const Modal : React.FC<Props> = ({ children, click, header, bodyClass, ...props }) => {
+const Modal: React.FC<Props> = ({
+  children,
+  click,
+  header,
+  bodyClass,
+  ...props
+}) => {
   return ReactDOM.createPortal(
     <div className={`modal`} onClick={click}>
       <div
