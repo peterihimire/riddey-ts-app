@@ -71,7 +71,7 @@ const Home: React.FC = () => {
                           style={{ width: "30px", marginRight: "5px" }}
                         />
                         <p>
-                          <span>{span}</span>- {txt}
+                          <span>{span}</span> - {txt}
                         </p>
                       </li>
                     );
