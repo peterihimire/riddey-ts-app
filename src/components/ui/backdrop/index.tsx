@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import ReactDOM from "react-dom";
 
 interface Props {
@@ -7,9 +7,18 @@ interface Props {
 }
 
 const backdrop: React.FC<Props> = ({ open, clicked }) => {
+  const elRef = useRef<Element>(null);
+
+  useEffect(() => {
+    // 👉️ ref could be null here
+    if (elRef.current != null) {
+      // 👉️ TypeScript knows that ref is not null here
+      elRef.current;
+    }
+  }, []);
   return ReactDOM.createPortal(
     <div className={`backdrop ${open ? "show" : ""}`} onClick={clicked}></div>,
-    document.getElementById("backdrop")!
+    elRef.current as any
   );
 };
 
